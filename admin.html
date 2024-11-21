@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>قائمة الإدارة</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- الهيدر -->
+  <header>
+    <div class="header-container">
+      <!-- أيقونة القائمة -->
+      <div class="menu-icon" onclick="toggleMenu()">☰</div>
+      <!-- الشعار -->
+      <div class="logo">
+        <img src="https://cdn.discordapp.com/attachments/1308469755962720327/1308492643285598318/Picsart_24-09-12_14-45-59-875.png?ex=673f75bc&is=673e243c&hm=0bdc20e6f5d90a79e0a3249271d69a4dd1fb8364daaac632f9155e9a62bac9e5&" alt="تايقروز">
+      </div>
+    </div>
+  </header>
+
+  <!-- القائمة الجانبية -->
+  <div class="menu-overlay" id="menuOverlay">
+    <ul class="menu-list">
+            <div class="logsm">
+        <img src="https://cdn.discordapp.com/attachments/1308469755962720327/1308492643285598318/Picsart_24-09-12_14-45-59-875.png?ex=673f75bc&is=673e243c&hm=0bdc20e6f5d90a79e0a3249271d69a4dd1fb8364daaac632f9155e9a62bac9e5&" alt="تايقروز">
+              <p>ـــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ<p>
+      <li><a href="index.html" onclick="toggleMenu()">القائمة الرئيسية</a></li>
+      <li><a href="rules.html" onclick="toggleMenu()">قوانين السيرفر</a></li>
+      <li><a href="instructions.html" onclick="toggleMenu()">قائمة التعليمات</a></li>
+      <li><a href="youtubers.html" onclick="toggleMenu()">قائمة اليوتيوبرز</a></li>
+      <li><a href="admin.html" onclick="toggleMenu()">قائمة الإدارة</a></li>
+  </ul> 
+  </div>
+  
+  <!-- المحتوى الرئيسي -->
+  <main>
+    <!-- قسم الإدارة -->
+    <section class="admin" id="admin">
+      <h1>قائمة الإدارة</h1>
+      <p>هنا تجد قائمة بأعضاء الإدارة، وتفاصيل الاتصال بهم، وكذلك المهام التي يقومون بها:</p>
+      <ul>
+        <li>الاسم: تايقروز</li>
+        <li>الدور: صاحب السيرفر</li>
+        <li>حساب الديسكورد: tigeroz1<li>
+        <li>الاسم: ابوعبيد</li>
+        <li>الدور: ادارة عليا</li>
+        <li>حساب الديسكورد: aboud777_7_48583<li>
+        <li>الاسم: الرويمي</li>
+        <li>الدور: ادارة عليا</li>
+        <li>حساب الديسكورد: islam_rwime<li>
+        <li>الاسم: نايف</li>
+        <li>الدور: ادارة عليا</li>
+        <li>حساب الديسكورد: n.7cw<li>
+        <li>الاسم: علي الدغيري</li>
+        <li>الدور: اداري</li>
+        <li>حساب الديسكورد: harmonious_tiger_03352<li>
+        <li>الاسم: عبود</li>
+        <li>الدور: اداري</li>
+        <li>حساب الديسكورد: d_5j<li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- الفوتر -->
+  <footer>
+    <p>© 2024 جميع الحقوق محفوظة لتايقروز</p>
+  </footer>
+
+  <!-- سكربت الجافاسكريبت -->
+  <script>
+    function toggleMenu() {
+      const menuOverlay = document.getElementById('menuOverlay');
+      const content = document.querySelector('main');
+      
+      // تبديل ظهور القائمة
+      menuOverlay.classList.toggle('active');
+      
+      // إضافة أو إزالة تأثير التغبيش
+      content.classList.toggle('blurred');
+    }
+</script>
+</body>
+</html>
