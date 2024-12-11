@@ -1,409 +1,181 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="ar">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TIGEROZ - سيرفر رول بلاي</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>مرحبًا بكم في TIGEROZ</title>
     <style>
-        :root {
-            --primary-color: #ff8800;
-            --secondary-color: #ff6b00;
-            --accent-color: #ffa533;
-            --bg-dark: #1a1a1a;
-            --bg-light: #2a2a2a;
-            --text-light: #ffffff;
-            --text-gray: #cccccc;
-        }
-
-        * {
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(to bottom, #2c3e50, #34495e);
+            color: white;
+            overflow-x: hidden;
         }
 
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-        }
-
-        .header {
-            background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
-            padding: 3rem 2rem;
+        header {
             text-align: center;
-            position: relative;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.4);
+            padding: 50px 10px;
+            background: #1abc9c;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            animation: fadeInDown 1s ease-in-out;
         }
 
-        .logo {
-            font-size: 3.5rem;
-            font-weight: 900;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
-            margin-bottom: 1rem;
-            letter-spacing: 2px;
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
         }
 
-        .header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        .nav-toggle {
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            font-size: 2rem;
-            color: var(--text-light);
-            background: none;
-            border: none;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            display: none;
-        }
-
-        .navbar {
-            background-color: var(--bg-light);
-            padding: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.3);
-        }
-
-        .nav-links {
+        .menu {
             display: flex;
             justify-content: center;
-            list-style: none;
-            gap: 3rem;
+            gap: 20px;
+            padding: 20px 0;
+            background: #2c3e50;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 2s ease-in-out;
         }
 
-        .nav-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 1.1rem;
-            position: relative;
-            padding: 0.5rem 1rem;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        .menu-item {
+            padding: 15px 30px;
+            background: #34495e;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
         }
 
-        .nav-links a i {
-            font-size: 1.2rem;
-            color: var(--primary-color);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background-color: var(--primary-color);
-            transition: width 0.3s ease;
-            border-radius: 5px;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
+        .menu-item:hover {
+            background: #1abc9c;
+            transform: scale(1.1);
         }
 
         .section {
-            background-color: var(--bg-light);
-            border-radius: 20px;
-            padding: 2.5rem;
-            margin-bottom: 2.5rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background-color: var(--primary-color);
-            border-radius: 20px 0 0 20px;
-        }
-
-        .section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            padding: 50px 20px;
+            text-align: center;
+            margin: 30px 10%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            animation: slideIn 1.5s ease-in-out;
         }
 
         .section h2 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+            font-size: 2em;
+            margin-bottom: 20px;
         }
 
-        .section p {
-            line-height: 1.8;
-            color: var(--text-gray);
-            font-size: 1.1rem;
+        .section p, .section ul {
+            font-size: 1.2em;
         }
 
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
+        ul {
+            list-style: none;
+            padding: 0;
         }
 
-        .feature-card {
-            background: linear-gradient(145deg, #2d2d2d, #222222);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.3s ease;
+        ul li {
+            margin: 10px 0;
+            background: #1abc9c;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            animation: bounceIn 1s ease-in-out;
         }
 
-        .feature-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .feature-card i {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .btn-container {
-            text-align: center;
-            margin-top: 4rem;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
+        a {
+            color: #1abc9c;
             text-decoration: none;
-            margin: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255,136,0,0.3);
-            font-size: 1.1rem;
-            font-weight: 700;
         }
 
-        .btn:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255,136,0,0.4);
+        a:hover {
+            text-decoration: underline;
         }
 
-        .statistics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-            text-align: center;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
-        .stat-card {
-            background-color: var(--bg-light);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
-        .stat-label {
-            color: var(--text-gray);
-            font-size: 1.1rem;
-        }
-
-        @media (max-width: 768px) {
-            .nav-toggle {
-                display: block;
+        @keyframes bounceIn {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
             }
-
-            .navbar {
-                padding: 0;
+            40% {
+                transform: translateY(-30px);
             }
-
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                align-items: center;
-                padding: 1.5rem;
-                gap: 1.5rem;
-            }
-
-            .nav-links.active {
-                display: flex;
-                animation: slideDown 0.3s ease-out;
-            }
-
-            @keyframes slideDown {
-                from {
-                    opacity: 0;
-                    transform: translateY(-20px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            .section {
-                padding: 2rem;
-            }
-
-            .logo {
-                font-size: 2.5rem;
+            60% {
+                transform: translateY(-15px);
             }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <button class="nav-toggle" aria-label="تبديل القائمة">☰</button>
-        <h1 class="logo">TIGEROZ</h1>
-        <p>استمتع بتجربة رول بلاي فريدة من نوعها</p>
-    </div>
-
-    <nav class="navbar">
-        <ul class="nav-links">
-            <li><a href="#rules"><i class="fas fa-scroll"></i>قوانين السيرفر</a></li>
-            <li><a href="#guide"><i class="fas fa-book"></i>إرشادات الانضمام</a></li>
-            <li><a href="#players"><i class="fas fa-users"></i>قائمة اللاعبين</a></li>
-            <li><a href="#admin"><i class="fas fa-user-shield"></i>معلومات الإدارة</a></li>
-            <li><a href="#features"><i class="fas fa-star"></i>المميزات</a></li>
-        </ul>
+    <header>
+        <h1>مرحبًا بكم في موقع TIGEROZ</h1>
+    </header>
+    <nav class="menu">
+        <div class="menu-item" onclick="scrollToSection('rules')">قوانين السيرفر</div>
+        <div class="menu-item" onclick="scrollToSection('instructions')">إرشادات الانضمام</div>
+        <div class="menu-item" onclick="scrollToSection('players')">اللاعبين واليوتيوبرز</div>
+        <div class="menu-item" onclick="scrollToSection('management')">فريق الإدارة</div>
     </nav>
-
-    <div class="container">
-        <div class="statistics">
-            <div class="stat-card">
-                <div class="stat-number">1000+</div>
-                <div class="stat-label">لاعب نشط</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">50+</div>
-                <div class="stat-label">يوتيوبر محتوى</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">24/7</div>
-                <div class="stat-label">دعم متواصل</div>
-            </div>
-        </div>
-
-        <div id="rules" class="section">
-            <h2><i class="fas fa-scroll"></i>قوانين السيرفر</h2>
-            <p>مجموعة شاملة من القواعد والضوابط لضمان تجربة لعب آمنة وممتعة لجميع الأعضاء</p>
-        </div>
-
-        <div id="guide" class="section">
-            <h2><i class="fas fa-book"></i>إرشادات الانضمام</h2>
-            <p>دليلك الشامل خطوة بخطوة للانضمام والمشاركة في مجتمعنا المتميز</p>
-        </div>
-
-        <div id="players" class="section">
-            <h2><i class="fas fa-users"></i>قائمة اللاعبين واليوتيوبرز</h2>
-            <p>تعرف على نخبة اللاعبين وصناع المحتوى المميزين في مجتمعنا</p>
-        </div>
-
-        <div id="admin" class="section">
-            <h2><i class="fas fa-user-shield"></i>معلومات الإدارة</h2>
-            <p>تعرف على فريق الإدارة المحترف وطرق التواصل المباشر معهم</p>
-        </div>
-
-        <div id="features" class="features">
-            <div class="feature-card">
-                <i class="fas fa-gamepad"></i>
-                <h3>تجربة لعب متميزة</h3>
-                <p>أحدث التقنيات وأفضل الإضافات</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-headset"></i>
-                <h3>دعم فني 24/7</h3>
-                <p>فريق دعم محترف جاهز لمساعدتك</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-trophy"></i>
-                <h3>فعاليات وجوائز</h3>
-                <p>مسابقات وفعاليات أسبوعية</p>
-            </div>
-        </div>
-
-        <div class="btn-container">
-            <a href="#" class="btn"><i class="fab fa-discord"></i>انضم عبر Discord</a>
-            <a href="#" class="btn"><i class="fas fa-user-plus"></i>قدم طلب انضمام</a>
-        </div>
-    </div>
+    <section id="rules" class="section">
+        <h2>قوانين السيرفر</h2>
+        <ul>
+            <li>التفاعل باحترام مع الجميع.</li>
+            <li>الامتناع عن الغش أو استغلال الثغرات.</li>
+            <li>الالتزام بالقواعد المحددة من الإدارة.</li>
+        </ul>
+    </section>
+    <section id="instructions" class="section">
+        <h2>إرشادات الانضمام</h2>
+        <p>للانضمام إلى السيرفر، قم بالتقديم عبر <a href="https://discord.com" target="_blank">Discord</a> واتبع التعليمات المرسلة من فريق الإدارة.</p>
+    </section>
+    <section id="players" class="section">
+        <h2>قائمة اللاعبين واليوتيوبرز</h2>
+        <p>تعرف على أبرز اللاعبين وصناع المحتوى المشاركين في السيرفر.</p>
+    </section>
+    <section id="management" class="section">
+        <h2>فريق الإدارة</h2>
+        <p>فريق الإدارة المسؤول عن الإشراف وضمان تجربة لعب رائعة للجميع.</p>
+    </section>
 
     <script>
-        const navToggle = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
-                navLinks.classList.remove('active');
-            }
-        });
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // إضافة تأثير العداد للإحصائيات
-        const stats = document.querySelectorAll('.stat-number');
-        stats.forEach(stat => {
-            const target = parseFloat(stat.innerText);
-            let current = 0;
-            const increment = target / 50;
-            const updateCount = () => {
-                if(current < target) {
-                    current += increment;
-                    stat.innerText = current.toFixed(0) + (stat.innerText.includes('+') ? '+' : '');
-                    setTimeout(updateCount, 30);
-                } else {
-                    stat.innerText = target + (stat.innerText.includes('+') ? '+' : '');
-                }
-            }
-            updateCount();
-        });
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>
